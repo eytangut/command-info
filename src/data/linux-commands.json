@@ -356,7 +356,251 @@
             "ss -tuln",
             "ss -s"
           ]
-        }
+        },
+        {
+            "name": "sort",
+            "description": "Sort lines of text files.",
+            "longDescription": "The sort command arranges the lines of input files or standard input in a specific order, which by default is lexicographical.",
+            "usage": "sort [OPTIONS] [FILE]",
+            "category": "Text Processing",
+            "arguments": [
+              {
+                "name": "-r",
+                "description": "Sort in reverse order."
+              },
+              {
+                "name": "-n",
+                "description": "Sort numerically."
+              }
+            ],
+            "examples": [
+              "sort file.txt",
+              "sort -r file.txt"
+            ]
+          },
+          {
+            "name": "uniq",
+            "description": "Report or omit repeated lines.",
+            "longDescription": "The uniq command filters out adjacent duplicate lines from the input and displays unique lines, often used after sort.",
+            "usage": "uniq [OPTIONS] [FILE]",
+            "category": "Text Processing",
+            "arguments": [
+              {
+                "name": "-c",
+                "description": "Precedes each output line with the number of occurrences."
+              },
+              {
+                "name": "-d",
+                "description": "Only print duplicate lines."
+              }
+            ],
+            "examples": [
+              "uniq file.txt",
+              "sort file.txt | uniq -c"
+            ]
+          },
+          {
+            "name": "strings",
+            "description": "Find printable strings in files.",
+            "longDescription": "The strings command searches binary files for printable strings, which can be useful in reverse engineering or extracting text from non-text files.",
+            "usage": "strings [OPTIONS] [FILE]",
+            "category": "Binary Analysis",
+            "arguments": [
+              {
+                "name": "-n LENGTH",
+                "description": "Specify the minimum string length to print."
+              }
+            ],
+            "examples": [
+              "strings binaryfile",
+              "strings -n 4 binaryfile"
+            ]
+          },
+          {
+            "name": "base64",
+            "description": "Encode and decode data using base64 encoding.",
+            "longDescription": "The base64 command is used to encode binary data as ASCII text and to decode base64 encoded data.",
+            "usage": "base64 [OPTIONS] [FILE]",
+            "category": "Data Encoding",
+            "arguments": [
+              {
+                "name": "-d",
+                "description": "Decode data instead of encoding it."
+              }
+            ],
+            "examples": [
+              "base64 file.txt",
+              "base64 -d encodedfile.txt"
+            ]
+          },
+          {
+            "name": "tr",
+            "description": "Translate or delete characters.",
+            "longDescription": "The tr command translates or deletes characters from the input based on the specified sets of characters.",
+            "usage": "tr [OPTIONS] SET1 [SET2]",
+            "category": "Text Processing",
+            "arguments": [
+              {
+                "name": "-d",
+                "description": "Delete characters in SET1."
+              },
+              {
+                "name": "-s",
+                "description": "Squeeze repeated characters from the output."
+              }
+            ],
+            "examples": [
+              "echo 'hello' | tr 'a-z' 'A-Z'",
+              "echo 'hello' | tr -d 'aeiou'"
+            ]
+          },
+          {
+            "name": "tar",
+            "description": "Create or extract tar archives.",
+            "longDescription": "The tar command is used to create, modify, and extract files from a tarball, which is an archive of files.",
+            "usage": "tar [OPTIONS] [ARCHIVE] [FILES]",
+            "category": "File Compression",
+            "arguments": [
+              {
+                "name": "-c",
+                "description": "Create a new archive."
+              },
+              {
+                "name": "-x",
+                "description": "Extract files from an archive."
+              },
+              {
+                "name": "-z",
+                "description": "Compress or decompress using gzip."
+              }
+            ],
+            "examples": [
+              "tar -cvf archive.tar file1 file2",
+              "tar -xvf archive.tar"
+            ]
+          },
+          {
+            "name": "gzip",
+            "description": "Compress files using gzip compression.",
+            "longDescription": "The gzip command compresses files using the Lempel-Ziv algorithm, reducing file size while retaining the original data.",
+            "usage": "gzip [OPTIONS] [FILE]",
+            "category": "File Compression",
+            "arguments": [
+              {
+                "name": "-d",
+                "description": "Decompress the file."
+              },
+              {
+                "name": "-k",
+                "description": "Keep the original file after compression."
+              }
+            ],
+            "examples": [
+              "gzip file.txt",
+              "gzip -d file.txt.gz"
+            ]
+          },
+          {
+            "name": "bzip2",
+            "description": "Compress files using bzip2 compression.",
+            "longDescription": "The bzip2 command compresses files using the Burrows-Wheeler algorithm, achieving higher compression ratios than gzip.",
+            "usage": "bzip2 [OPTIONS] [FILE]",
+            "category": "File Compression",
+            "arguments": [
+              {
+                "name": "-d",
+                "description": "Decompress the file."
+              },
+              {
+                "name": "-k",
+                "description": "Keep the original file after compression."
+              }
+            ],
+            "examples": [
+              "bzip2 file.txt",
+              "bzip2 -d file.txt.bz2"
+            ]
+          },
+          {
+            "name": "xxd",
+            "description": "Make a hexdump or reverse it.",
+            "longDescription": "The xxd command creates a hex dump of a file and can reverse the operation, converting hex data back into its original form.",
+            "usage": "xxd [OPTIONS] [FILE]",
+            "category": "Binary Analysis",
+            "arguments": [
+              {
+                "name": "-r",
+                "description": "Reverse operation, convert hex dump back to binary."
+              }
+            ],
+            "examples": [
+              "xxd file.bin",
+              "xxd -r hexfile.txt"
+            ]
+          },
+          {
+            "name": "cp",
+            "description": "Copy files and directories.",
+            "longDescription": "The cp command copies files and directories from one location to another, preserving attributes such as timestamps.",
+            "usage": "cp [OPTIONS] SOURCE DEST",
+            "category": "File System",
+            "arguments": [
+              {
+                "name": "-r",
+                "description": "Recursively copy directories and their contents."
+              },
+              {
+                "name": "-p",
+                "description": "Preserve file attributes."
+              }
+            ],
+            "examples": [
+              "cp file.txt /backup/",
+              "cp -r dir1/ /backup/"
+            ]
+          },
+          {
+            "name": "mv",
+            "description": "Move or rename files and directories.",
+            "longDescription": "The mv command moves files and directories to a different location or renames them.",
+            "usage": "mv [OPTIONS] SOURCE DEST",
+            "category": "File System",
+            "arguments": [
+              {
+                "name": "-i",
+                "description": "Prompt before overwriting existing files."
+              },
+              {
+                "name": "-n",
+                "description": "Do not overwrite any existing files."
+              }
+            ],
+            "examples": [
+              "mv file.txt /backup/",
+              "mv oldname.txt newname.txt"
+            ]
+          },
+          {
+            "name": "file",
+            "description": "Determine the type of a file.",
+            "longDescription": "The file command examines a file's contents and determines its type based on the file's magic number and other characteristics.",
+            "usage": "file [OPTIONS] [FILE]",
+            "category": "File System",
+            "arguments": [
+              {
+                "name": "-i",
+                "description": "Display the MIME type of the file."
+              },
+              {
+                "name": "-b",
+                "description": "Suppress file name in output."
+              }
+            ],
+            "examples": [
+              "file image.png",
+              "file -i document.pdf"
+            ]
+          }
       ]
       
   

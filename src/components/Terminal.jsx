@@ -88,7 +88,7 @@ function Terminal() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-green-500 p-4 font-mono">
+    <div className="min-h-full bg-gray-900 text-green-500 p-4 font-mono">
       <motion.h1 
         className="text-3xl font-bold mb-4 text-center"
         initial={{ opacity: 0, y: -50 }}
