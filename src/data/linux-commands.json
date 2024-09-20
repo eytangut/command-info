@@ -647,6 +647,150 @@
       "xxd -c 24 file.bin",
       "echo '41 42 43' | xxd -r > file.bin"
     ]
+  },
+  {
+    "name": "mkdir",
+    "description": "Make directories",
+    "longDescription": "The mkdir command is used to create one or more new directories. It's a fundamental command in Unix and Linux systems for organizing the file system. mkdir can create multiple directories at once, set permissions for new directories, and create parent directories as needed. The name 'mkdir' stands for 'make directory'.",
+    "usage": "mkdir [OPTION]... DIRECTORY...",
+    "category": "File System",
+    "arguments": [
+      {
+        "name": "-p, --parents",
+        "description": "No error if existing, make parent directories as needed"
+      },
+      {
+        "name": "-m, --mode=MODE",
+        "description": "Set file mode (as in chmod), not a=rwx - umask"
+      },
+      {
+        "name": "-v, --verbose",
+        "description": "Print a message for each created directory"
+      },
+      {
+        "name": "-Z",
+        "description": "Set SELinux security context of each created directory to the default type"
+      },
+      {
+        "name": "--context[=CTX]",
+        "description": "Like -Z, or if CTX is specified then set the SELinux or SMACK security context to CTX"
+      }
+    ],
+    "examples": [
+      "mkdir new_directory",
+      "mkdir -p parent/child/grandchild",
+      "mkdir -m 755 secure_directory",
+      "mkdir -v multiple_dirs_{1..5}",
+      "mkdir -p -m 700 ~/.ssh"
+    ]
+  },
+  {
+    "name": "cp",
+    "description": "Copy files and directories",
+    "longDescription": "The cp command is used to copy files and directories. It can copy single files, multiple files, and entire directory structures. cp is versatile, allowing users to preserve file attributes, create backups, and handle symbolic links. It's an essential tool for file management and system administration in Unix-like operating systems.",
+    "usage": "cp [OPTION]... SOURCE... DIRECTORY",
+    "category": "File Operations",
+    "arguments": [
+      {
+        "name": "-r, -R, --recursive",
+        "description": "Copy directories recursively"
+      },
+      {
+        "name": "-i, --interactive",
+        "description": "Prompt before overwrite"
+      },
+      {
+        "name": "-f, --force",
+        "description": "If an existing destination file cannot be opened, remove it and try again"
+      },
+      {
+        "name": "-p",
+        "description": "Preserve mode, ownership, and timestamps"
+      },
+      {
+        "name": "-u, --update",
+        "description": "Copy only when the SOURCE file is newer than the destination file or when the destination file is missing"
+      }
+    ],
+    "examples": [
+      "cp file.txt backup_file.txt",
+      "cp -r source_directory destination_directory",
+      "cp -p original.txt copy.txt",
+      "cp file1.txt file2.txt file3.txt destination_directory/",
+      "cp -u *.txt /path/to/directory/"
+    ]
+  },
+  {
+    "name": "mv",
+    "description": "Move (rename) files",
+    "longDescription": "The mv command is used to move or rename files and directories. It can move single files, multiple files, and entire directory structures. When used within the same filesystem, mv is very fast as it only changes the file's directory entry. mv can also be used to rename files and directories. It's a fundamental command for file management in Unix-like systems.",
+    "usage": "mv [OPTION]... SOURCE... DIRECTORY",
+    "category": "File Operations",
+    "arguments": [
+      {
+        "name": "-i, --interactive",
+        "description": "Prompt before overwrite"
+      },
+      {
+        "name": "-f, --force",
+        "description": "Do not prompt before overwriting"
+      },
+      {
+        "name": "-n, --no-clobber",
+        "description": "Do not overwrite an existing file"
+      },
+      {
+        "name": "-u, --update",
+        "description": "Move only when the SOURCE file is newer than the destination file or when the destination file is missing"
+      },
+      {
+        "name": "-v, --verbose",
+        "description": "Explain what is being done"
+      }
+    ],
+    "examples": [
+      "mv old_file.txt new_file.txt",
+      "mv file.txt /path/to/directory/",
+      "mv -i *.txt destination_directory/",
+      "mv -v source_directory target_directory",
+      "mv file1.txt file2.txt file3.txt destination_directory/"
+    ]
+  },
+  {
+    "name": "file",
+    "description": "Determine file type",
+    "longDescription": "The file command is used to determine the type of a file. It performs a series of tests to classify the file and outputs a brief description. This command doesn't rely solely on file extensions but examines the file's contents to determine its type. It's particularly useful for identifying file types without opening them, especially for files without extensions or with misleading extensions.",
+    "usage": "file [OPTION]... FILE...",
+    "category": "File Operations",
+    "arguments": [
+      {
+        "name": "-b, --brief",
+        "description": "Do not prepend filenames to output lines"
+      },
+      {
+        "name": "-i, --mime",
+        "description": "Output MIME type strings"
+      },
+      {
+        "name": "-z, --uncompress",
+        "description": "Try to look inside compressed files"
+      },
+      {
+        "name": "-L, --dereference",
+        "description": "Follow symlinks"
+      },
+      {
+        "name": "-f, --files-from FILE",
+        "description": "Read the names of the files to examine from FILE"
+      }
+    ],
+    "examples": [
+      "file document.pdf",
+      "file -b image.jpg",
+      "file -i unknown_file",
+      "file -z compressed_file.gz",
+      "file -L symlink_file"
+    ]
   }
       ]
       
