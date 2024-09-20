@@ -791,6 +791,230 @@
       "file -z compressed_file.gz",
       "file -L symlink_file"
     ]
+  },
+  {
+    "name": "ssh",
+    "description": "OpenSSH SSH client (remote login program)",
+    "longDescription": "The ssh command is used to securely log into a remote machine and execute commands on that machine. It provides encrypted communication between two untrusted hosts over an insecure network. SSH replaces older protocols like telnet and rsh, offering strong authentication and secure encrypted communications. It's commonly used for remote administration, file transfers, and tunneling other applications.",
+    "usage": "ssh [OPTIONS] [user@]hostname [COMMAND]",
+    "category": "Network",
+    "arguments": [
+      {
+        "name": "-p",
+        "description": "Port to connect to on the remote host"
+      },
+      {
+        "name": "-i",
+        "description": "Selects a file from which the identity (private key) for public key authentication is read"
+      },
+      {
+        "name": "-X",
+        "description": "Enables X11 forwarding"
+      },
+      {
+        "name": "-v",
+        "description": "Verbose mode, useful for debugging"
+      },
+      {
+        "name": "-L",
+        "description": "Specifies that connections to the given TCP port on the local host are to be forwarded to the given host and port on the remote side"
+      },
+      {
+        "name": "-N",
+        "description": "Do not execute a remote command, useful for just forwarding ports"
+      }
+    ],
+    "examples": [
+      "ssh user@example.com",
+      "ssh -p 2222 user@example.com",
+      "ssh -i ~/.ssh/id_rsa user@example.com",
+      "ssh -X user@example.com",
+      "ssh -L 8080:localhost:80 user@example.com"
+    ]
+  },
+  {
+    "name": "telnet",
+    "description": "User interface to the TELNET protocol",
+    "longDescription": "Telnet is a network protocol used on the Internet or local area networks to provide a bidirectional interactive text-oriented communication facility using a virtual terminal connection. The telnet command is used to communicate with another host using the TELNET protocol. While it's largely been replaced by SSH for security reasons, it's still used for debugging and accessing certain legacy systems.",
+    "usage": "telnet [OPTIONS] host [port]",
+    "category": "Network",
+    "arguments": [
+      {
+        "name": "-4",
+        "description": "Force IPv4 address resolution"
+      },
+      {
+        "name": "-6",
+        "description": "Force IPv6 address resolution"
+      },
+      {
+        "name": "-8",
+        "description": "Request 8-bit operation"
+      },
+      {
+        "name": "-E",
+        "description": "Disable the escape character functionality"
+      },
+      {
+        "name": "-L",
+        "description": "Specify a different terminal type"
+      }
+    ],
+    "examples": [
+      "telnet example.com",
+      "telnet example.com 23",
+      "telnet -4 example.com",
+      "telnet -8 example.com",
+      "telnet -E example.com"
+    ]
+  },
+  {
+    "name": "nc",
+    "description": "Arbitrary TCP and UDP connections and listens",
+    "longDescription": "Netcat (nc) is a versatile networking utility for reading from and writing to network connections using TCP or UDP. It's often referred to as the 'Swiss Army knife' of networking tools. It can be used for port scanning, transferring files, network debugging, and as a backdoor. The nc command can create almost any kind of connection you need, making it invaluable for network administrators and security professionals.",
+    "usage": "nc [OPTIONS] [hostname] [port]",
+    "category": "Network",
+    "arguments": [
+      {
+        "name": "-l",
+        "description": "Listen mode, for inbound connections"
+      },
+      {
+        "name": "-p",
+        "description": "Specify source port to use"
+      },
+      {
+        "name": "-u",
+        "description": "UDP mode"
+      },
+      {
+        "name": "-v",
+        "description": "Verbose output"
+      },
+      {
+        "name": "-z",
+        "description": "Zero-I/O mode (used for scanning)"
+      }
+    ],
+    "examples": [
+      "nc -l 1234",
+      "nc example.com 80",
+      "nc -u -l 1234",
+      "nc -zv example.com 20-30",
+      "nc -l -p 1234 > received_file"
+    ]
+  },
+  {
+    "name": "openssl",
+    "description": "OpenSSL command line tool",
+    "longDescription": "OpenSSL is a robust, full-featured open-source toolkit that implements the Secure Sockets Layer (SSL) and Transport Layer Security (TLS) protocols, as well as a full-strength general-purpose cryptography library. The openssl command is a powerful tool for using the various cryptography functions of OpenSSL's crypto library from the shell. It can be used for various tasks including creating and managing certificates, encryption and decryption, and testing SSL/TLS connections.",
+    "usage": "openssl command [command_opts] [command_args]",
+    "category": "Security",
+    "arguments": [
+      {
+        "name": "s_client",
+        "description": "SSL/TLS client program"
+      },
+      {
+        "name": "req",
+        "description": "PKCS#10 certificate request and certificate generating utility"
+      },
+      {
+        "name": "x509",
+        "description": "Certificate display and signing utility"
+      },
+      {
+        "name": "genrsa",
+        "description": "Generate RSA private key"
+      },
+      {
+        "name": "enc",
+        "description": "Encoding with ciphers"
+      }
+    ],
+    "examples": [
+      "openssl genrsa -out private.key 2048",
+      "openssl req -new -key private.key -out cert.csr",
+      "openssl x509 -req -days 365 -in cert.csr -signkey private.key -out cert.crt",
+      "openssl s_client -connect example.com:443",
+      "openssl enc -aes-256-cbc -salt -in file.txt -out file.enc"
+    ]
+  },
+  {
+    "name": "s_client",
+    "description": "SSL/TLS client program",
+    "longDescription": "The s_client command implements a generic SSL/TLS client which connects to a remote host using SSL/TLS. It's a diagnostic tool that can request a connection to an SSL/TLS server and displays the server certificate details. This command is part of the OpenSSL toolkit and is particularly useful for debugging SSL/TLS connections, verifying certificates, and testing server configurations.",
+    "usage": "openssl s_client [options] [hostname][:port]",
+    "category": "Security",
+    "arguments": [
+      {
+        "name": "-connect",
+        "description": "Specify the host and port to connect to"
+      },
+      {
+        "name": "-servername",
+        "description": "Set TLS extension servername in ClientHello"
+      },
+      {
+        "name": "-showcerts",
+        "description": "Display the whole certificate chain"
+      },
+      {
+        "name": "-starttls protocol",
+        "description": "Use the STARTTLS command before starting TLS"
+      },
+      {
+        "name": "-tls1_3",
+        "description": "Just use TLSv1.3"
+      }
+    ],
+    "examples": [
+      "openssl s_client -connect example.com:443",
+      "openssl s_client -connect example.com:443 -servername example.com",
+      "openssl s_client -connect example.com:443 -showcerts",
+      "openssl s_client -connect smtp.gmail.com:587 -starttls smtp",
+      "openssl s_client -connect example.com:443 -tls1_3"
+    ]
+  },
+  {
+    "name": "nmap",
+    "description": "Network exploration tool and security / port scanner",
+    "longDescription": "Nmap (Network Mapper) is a free, open-source tool used to discover hosts and services on a network, thus creating a 'map' of the network. It can be used to determine what hosts are available on the network, what services those hosts are offering, what operating systems they are running, what type of packet filters/firewalls are in use, and dozens of other characteristics. It's widely used by system administrators and IT security professionals for network inventory, managing service upgrade schedules, and monitoring host or service uptime.",
+    "usage": "nmap [Scan Type...] [Options] {target specification}",
+    "category": "Network Security",
+    "arguments": [
+      {
+        "name": "-sS",
+        "description": "TCP SYN scan (Default)"
+      },
+      {
+        "name": "-sU",
+        "description": "UDP scan"
+      },
+      {
+        "name": "-p-",
+        "description": "Scan all ports"
+      },
+      {
+        "name": "-sV",
+        "description": "Probe open ports to determine service/version info"
+      },
+      {
+        "name": "-O",
+        "description": "Enable OS detection"
+      },
+      {
+        "name": "-A",
+        "description": "Enable OS detection, version scanning, script scanning, and traceroute"
+      }
+    ],
+    "examples": [
+      "nmap 192.168.1.1",
+      "nmap -p 1-65535 -sV -sS -T4 target.com",
+      "nmap -sU -p 123,161,500 target.com",
+      "nmap -O target.com",
+      "nmap -A target.com"
+    ]
   }
       ]
       
