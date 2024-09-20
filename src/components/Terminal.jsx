@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import commands from '../data/linux-commands.json';
 
 // ButtonInterface component
-function ButtonInterface() {
+function Terminal() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
   const categories = ['All', ...new Set(commands.map(cmd => cmd.category))];
@@ -106,4 +106,4 @@ function ButtonInterface() {
   );
 }
 
-export default ButtonInterface;
+export default Terminal;

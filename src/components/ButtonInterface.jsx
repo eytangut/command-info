@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import commands from '../data/linux-commands.json';
 
 // Terminal component
-function Terminal() {
+function ButtonInterface() {
   const [terminalInput, setTerminalInput] = useState('');
   const [terminalOutput, setTerminalOutput] = useState('Welcome to the Linux Command Terminal. Type "help" for available commands.');
   const navigate = useNavigate();
@@ -136,4 +136,4 @@ function Terminal() {
   );
 }
 
-export default Terminal;
+export default ButtonInterface;

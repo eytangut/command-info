@@ -10,9 +10,9 @@ function App() {
     <HashRouter>
       <div className="min-h-screen bg-gray-900 text-green-500">
         <Routes>
-          <Route path="/command-info/" element={<Terminal />} />
-          <Route path="/command-info/button-interface" element={<ButtonInterface />} />
-          <Route path="/command-info/command/:name" element={<CommandDetail />} />
+          <Route path="/" element={<Terminal />} />
+          <Route path="/button-interface" element={<ButtonInterface />} />
+          <Route path="/command/:name" element={<CommandDetail />} />
         </Routes>
       </div>
     </HashRouter>
