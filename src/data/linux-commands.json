@@ -151,7 +151,6 @@
         "ps aux"
       ]
     },
-    [
         {
           "name": "ssh",
           "description": "Secure Shell, a protocol for securely accessing remote machines.",
@@ -360,4 +359,4 @@
         }
       ]
       
-  ]
+  
