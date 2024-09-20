@@ -1,606 +1,653 @@
 [
-    {
-      "name": "ls",
-      "description": "List directory contents",
-      "longDescription": "The ls command is used to list files and directories in a directory. It provides information about file types, permissions, and other metadata.",
-      "usage": "ls [OPTION]... [FILE]...",
-      "category": "File System",
-      "arguments": [
-        {
-          "name": "-l",
-          "description": "Use a long listing format"
-        },
-        {
-          "name": "-a",
-          "description": "Do not ignore entries starting with ."
-        },
-        {
-          "name": "-h",
-          "description": "Print sizes in human readable format"
-        }
-      ],
-      "examples": [
-        "ls",
-        "ls -l",
-        "ls -a",
-        "ls -lh"
-      ]
-    },
-    {
-      "name": "cd",
-      "description": "Change the current directory",
-      "longDescription": "The cd command is used to change the current working directory in a shell session. It allows you to navigate the file system hierarchy.",
-      "usage": "cd [DIRECTORY]",
-      "category": "File System",
-      "arguments": [
-        {
-          "name": "..",
-          "description": "Move to the parent directory"
-        },
-        {
-          "name": "~",
-          "description": "Move to the user's home directory"
-        },
-        {
-          "name": "-",
-          "description": "Move to the previous directory"
-        }
-      ],
-      "examples": [
-        "cd /home/user",
-        "cd ..",
-        "cd ~"
-      ]
-    },
-    {
-      "name": "mkdir",
-      "description": "Make directories",
-      "longDescription": "The mkdir command is used to create new directories in the file system. It can create multiple directories at once and create parent directories as needed.",
-      "usage": "mkdir [OPTION]... DIRECTORY...",
-      "category": "File System",
-      "arguments": [
-        {
-          "name": "-p",
-          "description": "Create parent directories as needed"
-        },
-        {
-          "name": "-m",
-          "description": "Set file mode (as in chmod)"
-        },
-        {
-          "name": "-v",
-          "description": "Print a message for each created directory"
-        }
-      ],
-      "examples": [
-        "mkdir new_directory",
-        "mkdir -p parent/child/grandchild"
-      ]
-    },
-    {
-      "name": "grep",
-      "description": "Search for patterns in files",
-      "longDescription": "The grep command searches for patterns in files or standard input. It can display lines that match a specified pattern.",
-      "usage": "grep [OPTION]... PATTERN [FILE]...",
-      "category": "Text Processing",
-      "arguments": [
-        {
-          "name": "-i",
-          "description": "Ignore case distinctions"
-        },
-        {
-          "name": "-r",
-          "description": "Recursively search subdirectories"
-        },
-        {
-          "name": "-n",
-          "description": "Print line numbers with output lines"
-        }
-      ],
-      "examples": [
-        "grep 'pattern' file.txt",
-        "grep -i 'case insensitive' file.txt",
-        "grep -r 'recursive search' ."
-      ]
-    },
-    {
-      "name": "chmod",
-      "description": "Change file mode bits",
-      "longDescription": "The chmod command is used to change the permissions of files and directories. It can modify read, write, and execute permissions for the owner, group, and others.",
-      "usage": "chmod [OPTION]... MODE[,MODE]... FILE...",
-      "category": "File System",
-      "arguments": [
-        {
-          "name": "-R",
-          "description": "Change files and directories recursively"
-        },
-        {
-          "name": "-v",
-          "description": "Output a diagnostic for every file processed"
-        }
-      ],
-      "examples": [
-        "chmod 755 file.txt",
-        "chmod u+x script.sh",
-        "chmod -R o-w directory"
-      ]
-    },
-    {
-      "name": "ps",
-      "description": "Report a snapshot of the current processes",
-      "longDescription": "The ps command provides information about currently running processes, including their process ID, CPU usage, memory usage, and more.",
-      "usage": "ps [OPTIONS]",
-      "category": "Process Management",
-      "arguments": [
-        {
-          "name": "-e",
-          "description": "Select all processes"
-        },
-        {
-          "name": "-f",
-          "description": "Do full-format listing"
-        },
-        {
-          "name": "-u",
-          "description": "Select by effective user ID or name"
-        }
-      ],
-      "examples": [
-        "ps",
-        "ps -ef",
-        "ps aux"
-      ]
-    },
-        {
-          "name": "ssh",
-          "description": "Secure Shell, a protocol for securely accessing remote machines.",
-          "longDescription": "The ssh command is used to establish a secure connection to a remote machine over an unsecured network, allowing for secure remote login and other secure network services.",
-          "usage": "ssh [USER@]HOST",
-          "category": "Networking",
-          "arguments": [
-            {
-              "name": "-p PORT",
-              "description": "Specifies the port to connect to on the remote host."
-            },
-            {
-              "name": "-i IDENTITY_FILE",
-              "description": "Selects a file from which the identity (private key) for public key authentication is read."
-            }
-          ],
-          "examples": [
-            "ssh user@example.com",
-            "ssh -p 2222 user@hostname"
-          ]
-        },
-        {
-          "name": "telnet",
-          "description": "A protocol for text-based communication with remote devices.",
-          "longDescription": "The telnet command allows users to connect to remote servers and perform operations through a command-line interface, but it is not secure as it transmits data in plaintext.",
-          "usage": "telnet HOST [PORT]",
-          "category": "Networking",
-          "arguments": [
-            {
-              "name": "-l USER",
-              "description": "Specifies the user to log in as."
-            }
-          ],
-          "examples": [
-            "telnet example.com 80",
-            "telnet 192.168.1.1"
-          ]
-        },
-        {
-          "name": "nc",
-          "description": "Netcat, a utility for reading from and writing to network connections.",
-          "longDescription": "The nc command can create TCP or UDP connections and is useful for network diagnostics and data transfer, acting as a simple network data pipeline.",
-          "usage": "nc [OPTIONS] [HOST] [PORT]",
-          "category": "Networking",
-          "arguments": [
-            {
-              "name": "-l",
-              "description": "Listens for incoming connections."
-            },
-            {
-              "name": "-u",
-              "description": "Uses UDP instead of TCP."
-            }
-          ],
-          "examples": [
-            "nc example.com 80",
-            "nc -l 1234"
-          ]
-        },
-        {
-          "name": "ncat",
-          "description": "An enhanced version of netcat, part of the Nmap suite.",
-          "longDescription": "The ncat command is designed for networking and can handle connections in various modes, providing features like SSL support and IPv6.",
-          "usage": "ncat [OPTIONS] [HOST] [PORT]",
-          "category": "Networking",
-          "arguments": [
-            {
-              "name": "-l",
-              "description": "Listen mode."
-            },
-            {
-              "name": "--ssl",
-              "description": "Use SSL for encryption."
-            }
-          ],
-          "examples": [
-            "ncat -l -p 1234",
-            "ncat example.com 80"
-          ]
-        },
-        {
-          "name": "socat",
-          "description": "A command-line based utility that establishes two bidirectional byte streams.",
-          "longDescription": "The socat command can connect two network sockets, allowing for complex networking setups and enabling data transfers between different types of endpoints.",
-          "usage": "socat [OPTIONS] ADDRESS1 ADDRESS2",
-          "category": "Networking",
-          "arguments": [
-            {
-              "name": "-v",
-              "description": "Verbose mode, displays detailed information."
-            },
-            {
-              "name": "-u",
-              "description": "Use UDP instead of TCP."
-            }
-          ],
-          "examples": [
-            "socat TCP-LISTEN:1234,fork EXEC:/bin/bash",
-            "socat UDP4-DATAGRAM:example.com:1234"
-          ]
-        },
-        {
-          "name": "openssl",
-          "description": "A toolkit for the Transport Layer Security (TLS) and Secure Sockets Layer (SSL) protocols.",
-          "longDescription": "The openssl command is used for creating and managing SSL/TLS certificates and performing secure network communications.",
-          "usage": "openssl [COMMAND] [OPTIONS]",
-          "category": "Security",
-          "arguments": [
-            {
-              "name": "COMMAND",
-              "description": "The specific OpenSSL command to run (e.g., s_client, req)."
-            },
-            {
-              "name": "-days N",
-              "description": "Specifies the number of days the certificate is valid."
-            }
-          ],
-          "examples": [
-            "openssl s_client -connect example.com:443",
-            "openssl req -new -x509 -days 365 -key key.pem -out cert.pem"
-          ]
-        },
-        {
-          "name": "s_client",
-          "description": "A command in OpenSSL for testing SSL/TLS connections.",
-          "longDescription": "The s_client command connects to a specified host and port and establishes an SSL/TLS connection, providing information about the SSL certificate and encryption used.",
-          "usage": "openssl s_client -connect HOST:PORT",
-          "category": "Security",
-          "arguments": [
-            {
-              "name": "-showcerts",
-              "description": "Displays all certificates in the chain."
-            },
-            {
-              "name": "-starttls PROTOCOL",
-              "description": "Initiates a TLS handshake for specified protocol (e.g., smtp)."
-            }
-          ],
-          "examples": [
-            "openssl s_client -connect example.com:443",
-            "openssl s_client -starttls smtp -connect smtp.example.com:25"
-          ]
-        },
-        {
-          "name": "nmap",
-          "description": "A network scanning tool used to discover hosts and services on a computer network.",
-          "longDescription": "The nmap command is widely used for security auditing, network inventory, and discovering devices on a network.",
-          "usage": "nmap [OPTIONS] [TARGET]",
-          "category": "Networking",
-          "arguments": [
-            {
-              "name": "-sP",
-              "description": "Ping scan - determines which hosts are up."
-            },
-            {
-              "name": "-p PORTS",
-              "description": "Specifies which ports to scan."
-            }
-          ],
-          "examples": [
-            "nmap -sP 192.168.1.0/24",
-            "nmap -p 22,80 example.com"
-          ]
-        },
-        {
-          "name": "netstat",
-          "description": "A networking utility that displays network connections, routing tables, and interface statistics.",
-          "longDescription": "The netstat command provides insights into network connections, listening ports, and protocol statistics, useful for troubleshooting and monitoring network activity.",
-          "usage": "netstat [OPTIONS]",
-          "category": "Networking",
-          "arguments": [
-            {
-              "name": "-a",
-              "description": "Displays all connections and listening ports."
-            },
-            {
-              "name": "-t",
-              "description": "Shows TCP connections."
-            }
-          ],
-          "examples": [
-            "netstat -a",
-            "netstat -tuln"
-          ]
-        },
-        {
-          "name": "ss",
-          "description": "A utility to investigate sockets, providing similar information to netstat but with a more modern design.",
-          "longDescription": "The ss command is faster and can provide more detailed information about sockets, making it suitable for troubleshooting and performance analysis.",
-          "usage": "ss [OPTIONS]",
-          "category": "Networking",
-          "arguments": [
-            {
-              "name": "-t",
-              "description": "Displays TCP sockets."
-            },
-            {
-              "name": "-u",
-              "description": "Displays UDP sockets."
-            }
-          ],
-          "examples": [
-            "ss -tuln",
-            "ss -s"
-          ]
-        },
-        {
-            "name": "sort",
-            "description": "Sort lines of text files.",
-            "longDescription": "The sort command arranges the lines of input files or standard input in a specific order, which by default is lexicographical.",
-            "usage": "sort [OPTIONS] [FILE]",
-            "category": "Text Processing",
-            "arguments": [
-              {
-                "name": "-r",
-                "description": "Sort in reverse order."
-              },
-              {
-                "name": "-n",
-                "description": "Sort numerically."
-              }
-            ],
-            "examples": [
-              "sort file.txt",
-              "sort -r file.txt"
-            ]
-          },
-          {
-            "name": "uniq",
-            "description": "Report or omit repeated lines.",
-            "longDescription": "The uniq command filters out adjacent duplicate lines from the input and displays unique lines, often used after sort.",
-            "usage": "uniq [OPTIONS] [FILE]",
-            "category": "Text Processing",
-            "arguments": [
-              {
-                "name": "-c",
-                "description": "Precedes each output line with the number of occurrences."
-              },
-              {
-                "name": "-d",
-                "description": "Only print duplicate lines."
-              }
-            ],
-            "examples": [
-              "uniq file.txt",
-              "sort file.txt | uniq -c"
-            ]
-          },
-          {
-            "name": "strings",
-            "description": "Find printable strings in files.",
-            "longDescription": "The strings command searches binary files for printable strings, which can be useful in reverse engineering or extracting text from non-text files.",
-            "usage": "strings [OPTIONS] [FILE]",
-            "category": "Binary Analysis",
-            "arguments": [
-              {
-                "name": "-n LENGTH",
-                "description": "Specify the minimum string length to print."
-              }
-            ],
-            "examples": [
-              "strings binaryfile",
-              "strings -n 4 binaryfile"
-            ]
-          },
-          {
-            "name": "base64",
-            "description": "Encode and decode data using base64 encoding.",
-            "longDescription": "The base64 command is used to encode binary data as ASCII text and to decode base64 encoded data.",
-            "usage": "base64 [OPTIONS] [FILE]",
-            "category": "Data Encoding",
-            "arguments": [
-              {
-                "name": "-d",
-                "description": "Decode data instead of encoding it."
-              }
-            ],
-            "examples": [
-              "base64 file.txt",
-              "base64 -d encodedfile.txt"
-            ]
-          },
-          {
-            "name": "tr",
-            "description": "Translate or delete characters.",
-            "longDescription": "The tr command translates or deletes characters from the input based on the specified sets of characters.",
-            "usage": "tr [OPTIONS] SET1 [SET2]",
-            "category": "Text Processing",
-            "arguments": [
-              {
-                "name": "-d",
-                "description": "Delete characters in SET1."
-              },
-              {
-                "name": "-s",
-                "description": "Squeeze repeated characters from the output."
-              }
-            ],
-            "examples": [
-              "echo 'hello' | tr 'a-z' 'A-Z'",
-              "echo 'hello' | tr -d 'aeiou'"
-            ]
-          },
-          {
-            "name": "tar",
-            "description": "Create or extract tar archives.",
-            "longDescription": "The tar command is used to create, modify, and extract files from a tarball, which is an archive of files.",
-            "usage": "tar [OPTIONS] [ARCHIVE] [FILES]",
-            "category": "File Compression",
-            "arguments": [
-              {
-                "name": "-c",
-                "description": "Create a new archive."
-              },
-              {
-                "name": "-x",
-                "description": "Extract files from an archive."
-              },
-              {
-                "name": "-z",
-                "description": "Compress or decompress using gzip."
-              }
-            ],
-            "examples": [
-              "tar -cvf archive.tar file1 file2",
-              "tar -xvf archive.tar"
-            ]
-          },
-          {
-            "name": "gzip",
-            "description": "Compress files using gzip compression.",
-            "longDescription": "The gzip command compresses files using the Lempel-Ziv algorithm, reducing file size while retaining the original data.",
-            "usage": "gzip [OPTIONS] [FILE]",
-            "category": "File Compression",
-            "arguments": [
-              {
-                "name": "-d",
-                "description": "Decompress the file."
-              },
-              {
-                "name": "-k",
-                "description": "Keep the original file after compression."
-              }
-            ],
-            "examples": [
-              "gzip file.txt",
-              "gzip -d file.txt.gz"
-            ]
-          },
-          {
-            "name": "bzip2",
-            "description": "Compress files using bzip2 compression.",
-            "longDescription": "The bzip2 command compresses files using the Burrows-Wheeler algorithm, achieving higher compression ratios than gzip.",
-            "usage": "bzip2 [OPTIONS] [FILE]",
-            "category": "File Compression",
-            "arguments": [
-              {
-                "name": "-d",
-                "description": "Decompress the file."
-              },
-              {
-                "name": "-k",
-                "description": "Keep the original file after compression."
-              }
-            ],
-            "examples": [
-              "bzip2 file.txt",
-              "bzip2 -d file.txt.bz2"
-            ]
-          },
-          {
-            "name": "xxd",
-            "description": "Make a hexdump or reverse it.",
-            "longDescription": "The xxd command creates a hex dump of a file and can reverse the operation, converting hex data back into its original form.",
-            "usage": "xxd [OPTIONS] [FILE]",
-            "category": "Binary Analysis",
-            "arguments": [
-              {
-                "name": "-r",
-                "description": "Reverse operation, convert hex dump back to binary."
-              }
-            ],
-            "examples": [
-              "xxd file.bin",
-              "xxd -r hexfile.txt"
-            ]
-          },
-          {
-            "name": "cp",
-            "description": "Copy files and directories.",
-            "longDescription": "The cp command copies files and directories from one location to another, preserving attributes such as timestamps.",
-            "usage": "cp [OPTIONS] SOURCE DEST",
-            "category": "File System",
-            "arguments": [
-              {
-                "name": "-r",
-                "description": "Recursively copy directories and their contents."
-              },
-              {
-                "name": "-p",
-                "description": "Preserve file attributes."
-              }
-            ],
-            "examples": [
-              "cp file.txt /backup/",
-              "cp -r dir1/ /backup/"
-            ]
-          },
-          {
-            "name": "mv",
-            "description": "Move or rename files and directories.",
-            "longDescription": "The mv command moves files and directories to a different location or renames them.",
-            "usage": "mv [OPTIONS] SOURCE DEST",
-            "category": "File System",
-            "arguments": [
-              {
-                "name": "-i",
-                "description": "Prompt before overwriting existing files."
-              },
-              {
-                "name": "-n",
-                "description": "Do not overwrite any existing files."
-              }
-            ],
-            "examples": [
-              "mv file.txt /backup/",
-              "mv oldname.txt newname.txt"
-            ]
-          },
-          {
-            "name": "file",
-            "description": "Determine the type of a file.",
-            "longDescription": "The file command examines a file's contents and determines its type based on the file's magic number and other characteristics.",
-            "usage": "file [OPTIONS] [FILE]",
-            "category": "File System",
-            "arguments": [
-              {
-                "name": "-i",
-                "description": "Display the MIME type of the file."
-              },
-              {
-                "name": "-b",
-                "description": "Suppress file name in output."
-              }
-            ],
-            "examples": [
-              "file image.png",
-              "file -i document.pdf"
-            ]
-          }
+  {
+    "name": "ls",
+    "description": "List directory contents",
+    "longDescription": "The ls command is used to list files and directories in a directory. It provides information about file types, permissions, ownership, size, and modification times. By default, ls displays files and directories in alphabetical order, but various options can modify its output and behavior.",
+    "usage": "ls [OPTION]... [FILE]...",
+    "category": "File System",
+    "arguments": [
+      {
+        "name": "-l",
+        "description": "Use a long listing format"
+      },
+      {
+        "name": "-a",
+        "description": "Do not ignore entries starting with ."
+      },
+      {
+        "name": "-h",
+        "description": "Print sizes in human readable format"
+      },
+      {
+        "name": "-R",
+        "description": "List subdirectories recursively"
+      },
+      {
+        "name": "-S",
+        "description": "Sort by file size, largest first"
+      },
+      {
+        "name": "-t",
+        "description": "Sort by modification time, newest first"
+      }
+    ],
+    "examples": [
+      "ls",
+      "ls -l",
+      "ls -a",
+      "ls -lh",
+      "ls -R",
+      "ls -lS"
+    ]
+  },
+  {
+    "name": "ssh",
+    "description": "OpenSSH SSH client (remote login program)",
+    "longDescription": "The ssh command is used to securely log into a remote machine and execute commands on that machine. It provides encrypted communication between two untrusted hosts over an insecure network. SSH replaces older protocols like telnet and rsh, offering strong authentication and secure encrypted communications.",
+    "usage": "ssh [OPTIONS] [user@]hostname [COMMAND]",
+    "category": "Network",
+    "arguments": [
+      {
+        "name": "-p",
+        "description": "Port to connect to on the remote host"
+      },
+      {
+        "name": "-i",
+        "description": "Selects a file from which the identity (private key) for public key authentication is read"
+      },
+      {
+        "name": "-X",
+        "description": "Enables X11 forwarding"
+      },
+      {
+        "name": "-v",
+        "description": "Verbose mode, useful for debugging"
+      },
+      {
+        "name": "-L",
+        "description": "Specifies that connections to the given TCP port on the local host are to be forwarded to the given host and port on the remote side"
+      },
+      {
+        "name": "-N",
+        "description": "Do not execute a remote command, useful for just forwarding ports"
+      }
+    ],
+    "examples": [
+      "ssh user@example.com",
+      "ssh -p 2222 user@example.com",
+      "ssh -i ~/.ssh/id_rsa user@example.com",
+      "ssh -X user@example.com",
+      "ssh -L 8080:localhost:80 user@example.com"
+    ]
+  },
+  {
+    "name": "cd",
+    "description": "Change the current directory",
+    "longDescription": "The cd command is used to change the current working directory in Linux and Unix operating systems. It's one of the most frequently used commands in the terminal. The cd command can navigate through the file system, moving up or down in the directory hierarchy.",
+    "usage": "cd [DIRECTORY]",
+    "category": "File System",
+    "arguments": [
+      {
+        "name": "..",
+        "description": "Move to the parent directory"
+      },
+      {
+        "name": "~",
+        "description": "Move to the home directory"
+      },
+      {
+        "name": "-",
+        "description": "Move to the previous directory"
+      }
+    ],
+    "examples": [
+      "cd /home/user/Documents",
+      "cd ..",
+      "cd ~",
+      "cd -"
+    ]
+  },
+  {
+    "name": "cat",
+    "description": "Concatenate files and print on the standard output",
+    "longDescription": "The cat command is used to display the contents of one or more files without having to open them for editing. It can also be used to create, view, and concatenate files. The name 'cat' is derived from its function to con'cat'enate files.",
+    "usage": "cat [OPTION]... [FILE]...",
+    "category": "File Operations",
+    "arguments": [
+      {
+        "name": "-n",
+        "description": "Number all output lines"
+      },
+      {
+        "name": "-b",
+        "description": "Number nonempty output lines"
+      },
+      {
+        "name": "-s",
+        "description": "Suppress repeated empty output lines"
+      },
+      {
+        "name": "-A",
+        "description": "Show all characters (including non-printable ones)"
+      }
+    ],
+    "examples": [
+      "cat file.txt",
+      "cat -n file.txt",
+      "cat file1.txt file2.txt > combined.txt",
+      "cat > newfile.txt"
+    ]
+  },
+  {
+    "name": "file",
+    "description": "Determine file type",
+    "longDescription": "The file command is used to determine the type of a file. It performs a series of tests to classify the file and outputs a brief description. This command doesn't rely solely on file extensions but examines the file's contents to determine its type.",
+    "usage": "file [OPTION]... FILE...",
+    "category": "File Operations",
+    "arguments": [
+      {
+        "name": "-b",
+        "description": "Do not prepend filenames to output lines"
+      },
+      {
+        "name": "-i",
+        "description": "Output MIME type strings"
+      },
+      {
+        "name": "-z",
+        "description": "Try to look inside compressed files"
+      },
+      {
+        "name": "-L",
+        "description": "Follow symlinks"
+      }
+    ],
+    "examples": [
+      "file document.pdf",
+      "file -b image.jpg",
+      "file -i unknown_file",
+      "file -z compressed_file.gz"
+    ]
+  },
+  {
+    "name": "du",
+    "description": "Estimate file space usage",
+    "longDescription": "The du (disk usage) command is used to estimate file and directory space usage. It's particularly useful for finding which files or directories are taking up the most space on a disk. By default, du reports the disk space usage of each subdirectory and file.",
+    "usage": "du [OPTION]... [FILE]...",
+    "category": "File System",
+    "arguments": [
+      {
+        "name": "-h",
+        "description": "Print sizes in human readable format"
+      },
+      {
+        "name": "-s",
+        "description": "Display only a total for each argument"
+      },
+      {
+        "name": "-c",
+        "description": "Produce a grand total"
+      },
+      {
+        "name": "-a",
+        "description": "Write counts for all files, not just directories"
+      },
+      {
+        "name": "--max-depth=N",
+        "description": "Print the total for a directory only if it is N or fewer levels below the command line argument"
+      }
+    ],
+    "examples": [
+      "du -h",
+      "du -sh *",
+      "du -a",
+      "du --max-depth=1"
+    ]
+  },
+  {
+    "name": "find",
+    "description": "Search for files in a directory hierarchy",
+    "longDescription": "The find command is used to search and locate files and directories based on conditions you specify. It searches through one or more directory trees of a file system, locating files based on some user-specified criteria. It is one of the most powerful and useful commands in Linux systems administration.",
+    "usage": "find [PATH...] [EXPRESSION]",
+    "category": "File System",
+    "arguments": [
+      {
+        "name": "-name",
+        "description": "Search for files by name"
+      },
+      {
+        "name": "-type",
+        "description": "Search for files of a specific type"
+      },
+      {
+        "name": "-size",
+        "description": "Search for files based on their size"
+      },
+      {
+        "name": "-mtime",
+        "description": "Search for files based on when they were last modified"
+      },
+      {
+        "name": "-exec",
+        "description": "Execute a command on each found file"
+      }
+    ],
+    "examples": [
+      "find . -name '*.txt'",
+      "find /home -type d",
+      "find . -size +1M",
+      "find . -mtime -7",
+      "find . -type f -exec ls -l {} +"
+    ]
+  },
+  {
+    "name": "grep",
+    "description": "Print lines that match patterns",
+    "longDescription": "The grep command is used to search text or searches the given file for lines containing a match to the given strings or words. It is one of the most useful commands on Linux and Unix-like operating systems. The name 'grep' comes from the ed command g/re/p (globally search for a regular expression and print matching lines).",
+    "usage": "grep [OPTIONS] PATTERN [FILE...]",
+    "category": "Text Processing",
+    "arguments": [
+      {
+        "name": "-i",
+        "description": "Ignore case distinctions"
+      },
+      {
+        "name": "-v",
+        "description": "Invert the sense of matching, to select non-matching lines"
+      },
+      {
+        "name": "-r",
+        "description": "Read all files under each directory, recursively"
+      },
+      {
+        "name": "-n",
+        "description": "Prefix each line of output with the line number within its input file"
+      },
+      {
+        "name": "-E",
+        "description": "Interpret PATTERN as an extended regular expression"
+      }
+    ],
+    "examples": [
+      "grep 'pattern' file.txt",
+      "grep -i 'pattern' file.txt",
+      "grep -v 'pattern' file.txt",
+      "grep -r 'pattern' .",
+      "grep -n 'pattern' file.txt"
+    ]
+  },
+  {
+    "name": "man",
+    "description": "An interface to the system reference manuals",
+    "longDescription": "The man command is used to display the user manual of any command that we can run on the terminal. It provides a detailed view of the command which includes NAME, SYNOPSIS, DESCRIPTION, OPTIONS, EXIT STATUS, RETURN VALUES, ERRORS, FILES, VERSIONS, EXAMPLES, AUTHORS and SEE ALSO.",
+    "usage": "man [OPTION]... [COMMAND NAME]...",
+    "category": "System",
+    "arguments": [
+      {
+        "name": "-f",
+        "description": "Equivalent to whatis"
+      },
+      {
+        "name": "-k",
+        "description": "Equivalent to apropos"
+      },
+      {
+        "name": "-w",
+        "description": "Print the location of the man page(s) that would be displayed"
+      },
+      {
+        "name": "-a",
+        "description": "Display all the manual pages with the given name"
+      }
+    ],
+    "examples": [
+      "man ls",
+      "man -f printf",
+      "man -k password",
+      "man -w bash",
+      "man -a intro"
+    ]
+  },
+  {
+    "name": "sort",
+    "description": "Sort lines of text files",
+    "longDescription": "The sort command is used to sort a file, arranging the records in a particular order. By default, the sort command sorts file assuming the contents are ASCII. Using options in sort command, it can also be used to sort numerically. The sort command can read from standard input or from a file.",
+    "usage": "sort [OPTION]... [FILE]...",
+    "category": "Text Processing",
+    "arguments": [
+      {
+        "name": "-n",
+        "description": "Compare according to string numerical value"
+      },
+      {
+        "name": "-r",
+        "description": "Reverse the result of comparisons"
+      },
+      {
+        "name": "-k",
+        "description": "Sort via a key; KEYDEF gives location and type"
+      },
+      {
+        "name": "-u",
+        "description": "With -c, check for strict ordering; without -c, output only the first of an equal run"
+      },
+      {
+        "name": "-f",
+        "description": "Ignore case when comparing"
+      }
+    ],
+    "examples": [
+      "sort file.txt",
+      "sort -n numbers.txt",
+      "sort -r file.txt",
+      "sort -k 2 file.txt",
+      "sort -u file.txt"
+    ]
+  },
+  {
+    "name": "uniq",
+    "description": "Report or omit repeated lines",
+    "longDescription": "The uniq command is used to report or omit repeated lines in a file. It filters out the repeated lines in a file. uniq requires that the repeated lines are adjacent to each other, so it is often used in conjunction with sort. When used without any options, uniq prints one instance of each line that is repeated in the input.",
+    "usage": "uniq [OPTION]... [INPUT [OUTPUT]]",
+    "category": "Text Processing",
+    "arguments": [
+      {
+        "name": "-c",
+        "description": "Prefix lines by the number of occurrences"
+      },
+      {
+        "name": "-d",
+        "description": "Only print duplicate lines, one for each group"
+      },
+      {
+        "name": "-u",
+        "description": "Only print unique lines"
+      },
+      {
+        "name": "-i",
+        "description": "Ignore differences in case when comparing"
+      },
+      {
+        "name": "-f N",
+        "description": "Avoid comparing the first N fields"
+      }
+    ],
+    "examples": [
+      "uniq file.txt",
+      "sort file.txt | uniq",
+      "uniq -c file.txt",
+      "uniq -d file.txt",
+      "uniq -u file.txt"
+    ]
+  },
+  {
+    "name": "strings",
+    "description": "Print the sequences of printable characters in files",
+    "longDescription": "The strings command is used to extract printable character sequences from binary files. It's particularly useful for examining non-text files, such as executables or data files, to find human-readable content within them. By default, it prints sequences of at least 4 printable characters terminated by a newline or null character.",
+    "usage": "strings [OPTION]... [FILE]...",
+    "category": "File Operations",
+    "arguments": [
+      {
+        "name": "-n",
+        "description": "Print sequences of at least N characters long"
+      },
+      {
+        "name": "-f",
+        "description": "Print the name of the file before each string"
+      },
+      {
+        "name": "-t",
+        "description": "Print the offset within the file before each string"
+      },
+      {
+        "name": "-e",
+        "description": "Select the character encoding of the strings that are to be found"
+      }
+    ],
+    "examples": [
+      "strings file.bin",
+      "strings -n 10 file.bin",
+      "strings -f *.bin",
+      "strings -t d file.bin",
+      "strings -e S file.bin"
+    ]
+  },
+      {
+    "name": "base64",
+    "description": "Base64 encode/decode data and print to standard output",
+    "longDescription": "The base64 command is used to encode and decode data using the base64 encoding scheme. Base64 encoding is commonly used when there is a need to encode binary data that needs to be stored and transferred over media that are designed to deal with ASCII text. This encoding helps to ensure that the data remains intact without modification during transport. Base64 is commonly used in email, MIME protocol, and XML.",
+    "usage": "base64 [OPTION]... [FILE]",
+    "category": "Data Processing",
+    "arguments": [
+      {
+        "name": "-d, --decode",
+        "description": "Decode data"
+      },
+      {
+        "name": "-i, --ignore-garbage",
+        "description": "When decoding, ignore non-alphabet characters"
+      },
+      {
+        "name": "-w, --wrap=COLS",
+        "description": "Wrap encoded lines after COLS character (default 76). Use 0 to disable line wrapping"
+      },
+      {
+        "name": "--input=FILE",
+        "description": "Read input from FILE instead of stdin"
+      },
+      {
+        "name": "--output=FILE",
+        "description": "Write output to FILE instead of stdout"
+      }
+    ],
+    "examples": [
+      "base64 file.txt",
+      "echo 'Hello World' | base64",
+      "base64 -d encoded.txt",
+      "base64 -w 0 file.txt",
+      "base64 --input=input.bin --output=output.txt"
+    ]
+  },
+  {
+    "name": "tr",
+    "description": "Translate or delete characters",
+    "longDescription": "The tr command is used to translate or delete characters. It can be used to perform various transformations on its input stream, including case conversion, squeezing repeating characters, deleting specific characters, and basic find and replace operations. The tr command operates on a character-by-character basis and can be particularly useful in shell scripts or in combination with other text processing tools.",
+    "usage": "tr [OPTION]... SET1 [SET2]",
+    "category": "Text Processing",
+    "arguments": [
+      {
+        "name": "-d, --delete",
+        "description": "Delete characters in SET1, do not translate"
+      },
+      {
+        "name": "-s, --squeeze-repeats",
+        "description": "Replace each sequence of a repeated character that is listed in the last specified SET, with a single occurrence of that character"
+      },
+      {
+        "name": "-t, --truncate-set1",
+        "description": "First truncate SET1 to length of SET2"
+      },
+      {
+        "name": "-c, --complement",
+        "description": "Use the complement of SET1"
+      }
+    ],
+    "examples": [
+      "echo 'hello world' | tr 'a-z' 'A-Z'",
+      "echo 'hello world' | tr -d 'aeiou'",
+      "echo 'hello   world' | tr -s ' '",
+      "tr '[:lower:]' '[:upper:]' < input.txt > output.txt",
+      "cat file.txt | tr -cd '[:print:]\\n'"
+    ]
+  },
+  {
+    "name": "tar",
+    "description": "An archiving utility",
+    "longDescription": "The tar command is used to create, maintain, modify, and extract files that are archived in the tar format. It can maintain directory structures and preserve file information such as permissions and timestamps. Tar is often used to create backups of files and directories or to distribute collections of files in a single package. The name 'tar' comes from 'Tape ARchive', as it was originally used to write data to sequential I/O devices like magnetic tapes.",
+    "usage": "tar [OPTION...] [FILE]...",
+    "category": "File Compression and Archiving",
+    "arguments": [
+      {
+        "name": "-c",
+        "description": "Create a new archive"
+      },
+      {
+        "name": "-x",
+        "description": "Extract files from an archive"
+      },
+      {
+        "name": "-t",
+        "description": "List the contents of an archive"
+      },
+      {
+        "name": "-v",
+        "description": "Verbosely list files processed"
+      },
+      {
+        "name": "-f ARCHIVE",
+        "description": "Use archive file or device ARCHIVE"
+      },
+      {
+        "name": "-z",
+        "description": "Filter the archive through gzip"
+      },
+      {
+        "name": "-j",
+        "description": "Filter the archive through bzip2"
+      }
+    ],
+    "examples": [
+      "tar -cvf archive.tar file1 file2 dir1",
+      "tar -xvf archive.tar",
+      "tar -tvf archive.tar",
+      "tar -czvf archive.tar.gz directory/",
+      "tar -xjvf archive.tar.bz2"
+    ]
+  },
+  {
+    "name": "gzip",
+    "description": "Compress or expand files",
+    "longDescription": "The gzip command is used to compress or expand files using Lempel-Ziv coding (LZ77). It's one of the most widely used compression tools in Unix and Linux systems. gzip typically replaces the original file with a compressed version having a .gz extension. It's often used in combination with tar to create compressed archive files. gzip can achieve compression ratios of 60-70% for common text files.",
+    "usage": "gzip [OPTION]... [FILE]...",
+    "category": "File Compression and Archiving",
+    "arguments": [
+      {
+        "name": "-d, --decompress",
+        "description": "Decompress files"
+      },
+      {
+        "name": "-f, --force",
+        "description": "Force compression or decompression even if the file has multiple links or the corresponding file already exists"
+      },
+      {
+        "name": "-k, --keep",
+        "description": "Keep (don't delete) input files during compression or decompression"
+      },
+      {
+        "name": "-l, --list",
+        "description": "List compressed file contents"
+      },
+      {
+        "name": "-r, --recursive",
+        "description": "Operate recursively on directories"
+      },
+      {
+        "name": "-#, --fast, --best",
+        "description": "Regulate the speed of compression using the specified digit #, where -1 or --fast indicates the fastest compression method (less compression) and -9 or --best indicates the slowest compression method (best compression)"
+      }
+    ],
+    "examples": [
+      "gzip file.txt",
+      "gzip -d file.txt.gz",
+      "gzip -l file.txt.gz",
+      "gzip -r directory/",
+      "gzip -9 file.txt"
+    ]
+  },
+  {
+    "name": "bzip2",
+    "description": "A block-sorting file compressor",
+    "longDescription": "The bzip2 command is used to compress or decompress files using the Burrows-Wheeler block sorting text compression algorithm and Huffman coding. It typically achieves a higher compression ratio than gzip, especially for larger files, but at the cost of slower compression and decompression speeds. Like gzip, bzip2 replaces the original file with a compressed version, usually with a .bz2 extension.",
+    "usage": "bzip2 [OPTIONS] filenames ...",
+    "category": "File Compression and Archiving",
+    "arguments": [
+      {
+        "name": "-d, --decompress",
+        "description": "Force decompression"
+      },
+      {
+        "name": "-z, --compress",
+        "description": "Force compression"
+      },
+      {
+        "name": "-k, --keep",
+        "description": "Keep (don't delete) input files during compression or decompression"
+      },
+      {
+        "name": "-f, --force",
+        "description": "Overwrite existing output files"
+      },
+      {
+        "name": "-t, --test",
+        "description": "Check integrity of compressed file(s)"
+      },
+      {
+        "name": "-#",
+        "description": "Set compression level to # (1-9), default 9"
+      }
+    ],
+    "examples": [
+      "bzip2 file.txt",
+      "bzip2 -d file.txt.bz2",
+      "bzip2 -k largefile",
+      "bzip2 -t archive.bz2",
+      "bzip2 -1 file.txt"
+    ]
+  },
+  {
+    "name": "xxd",
+    "description": "Make a hexdump or do the reverse",
+    "longDescription": "The xxd command creates a hex dump of a given file or standard input. It can also convert a hex dump back to its original binary form. A hex dump is a hexadecimal view of computer data, often used for debugging or reverse engineering. xxd is particularly useful for viewing or editing binary files, or for creating binary files from textual descriptions of their contents.",
+    "usage": "xxd [options] [infile [outfile]]",
+    "category": "File Operations",
+    "arguments": [
+      {
+        "name": "-b",
+        "description": "Switch to bits (binary digits) dump"
+      },
+      {
+        "name": "-c cols",
+        "description": "Format <cols> octets per line. Default 16 (-i: 12, -ps: 30)"
+      },
+      {
+        "name": "-g bytes",
+        "description": "Number of octets per group in normal output. Default 2 (-e: 4)"
+      },
+      {
+        "name": "-i",
+        "description": "Output in C include file style"
+      },
+      {
+        "name": "-l len",
+        "description": "Stop after <len> octets"
+      },
+      {
+        "name": "-p",
+        "description": "Output in postscript plain hexdump style"
+      },
+      {
+        "name": "-r",
+        "description": "Reverse operation: convert (or patch) hexdump into binary"
+      }
+    ],
+    "examples": [
+      "xxd file.bin",
+      "xxd -b file.bin",
+      "xxd -i file.bin",
+      "xxd -c 24 file.bin",
+      "echo '41 42 43' | xxd -r > file.bin"
+    ]
+  }
       ]
       
   
