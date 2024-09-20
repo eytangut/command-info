@@ -74,7 +74,7 @@ function CommandDetail() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.8 }}
           >
-            {command.description}
+            {command.longDescription}
           </motion.p>
           <motion.h3 
             className="text-xl font-semibold mb-2"
