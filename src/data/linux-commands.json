@@ -1015,6 +1015,114 @@
       "nmap -O target.com",
       "nmap -A target.com"
     ]
+  },
+  {
+    "name": "socat",
+    "description": "Multipurpose relay (SOcket CAT)",
+    "longDescription": "Socat is a command line based utility that establishes two bidirectional byte streams and transfers data between them. With socat, you can create various types of connections between different types of data sources and sinks. It's often described as a more powerful and flexible alternative to netcat, supporting a wider range of protocols and connection types.",
+    "usage": "socat [options] <address> <address>",
+    "category": "Networking",
+    "arguments": [
+      {
+        "name": "-d[d]",
+        "description": "Increase verbosity (use multiple times for more verbosity)"
+      },
+      {
+        "name": "-ly[facility]",
+        "description": "Log to syslog"
+      },
+      {
+        "name": "-u",
+        "description": "Use unidirectional mode (left to right)"
+      },
+      {
+        "name": "-U",
+        "description": "Use unidirectional mode (right to left)"
+      },
+      {
+        "name": "-v",
+        "description": "Increase verbosity (use multiple times for more verbosity)"
+      }
+    ],
+    "examples": [
+      "socat - TCP4:www.example.com:80",
+      "socat TCP-LISTEN:8080,fork TCP:target-server:80",
+      "socat -u UDP4-RECVFROM:9999,reuseaddr OPEN:received_data.txt,creat,append",
+      "socat -d -d TCP-LISTEN:8080,fork,reuseaddr EXEC:/path/to/script.sh",
+      "socat UNIX-LISTEN:/tmp/socket,fork EXEC:/bin/bash,pty,stderr"
+    ]
+  },
+  {
+    "name": "netstat",
+    "description": "Print network connections, routing tables, interface statistics, masquerade connections, and multicast memberships",
+    "longDescription": "Netstat is a command-line network utility tool that displays network connections for TCP (both incoming and outgoing), routing tables, and a number of network interface and network protocol statistics. It is a useful tool for system administrators to monitor network performance and troubleshoot network-related issues. However, netstat is considered deprecated on many systems in favor of the ss command.",
+    "usage": "netstat [options]",
+    "category": "Networking",
+    "arguments": [
+      {
+        "name": "-a",
+        "description": "Show both listening and non-listening sockets"
+      },
+      {
+        "name": "-t",
+        "description": "Show TCP connections"
+      },
+      {
+        "name": "-u",
+        "description": "Show UDP connections"
+      },
+      {
+        "name": "-n",
+        "description": "Show numerical addresses instead of hostnames"
+      },
+      {
+        "name": "-p",
+        "description": "Show the PID and name of the program to which each socket belongs"
+      }
+    ],
+    "examples": [
+      "netstat -tuln",
+      "netstat -anp",
+      "netstat -r",
+      "netstat -i",
+      "netstat -s"
+    ]
+  },
+  {
+    "name": "ss",
+    "description": "Another utility to investigate sockets",
+    "longDescription": "ss is a more modern replacement for the netstat command. It can display more TCP and state information than other tools. ss is faster than netstat because it's pulling information directly from the kernel space, not user space. It provides detailed information about network connections, their state, and network usage statistics.",
+    "usage": "ss [options] [filter]",
+    "category": "Networking",
+    "arguments": [
+      {
+        "name": "-t",
+        "description": "Display TCP sockets"
+      },
+      {
+        "name": "-u",
+        "description": "Display UDP sockets"
+      },
+      {
+        "name": "-l",
+        "description": "Display only listening sockets"
+      },
+      {
+        "name": "-p",
+        "description": "Show process using socket"
+      },
+      {
+        "name": "-n",
+        "description": "Don't resolve service names"
+      }
+    ],
+    "examples": [
+      "ss -tuln",
+      "ss -ta",
+      "ss -s",
+      "ss -pi",
+      "ss -o state established '( dport = :ssh or sport = :ssh )'"
+    ]
   }
       ]
       
