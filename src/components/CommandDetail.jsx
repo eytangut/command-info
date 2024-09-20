@@ -23,7 +23,7 @@ function CommandDetail() {
 
   // Handle back navigation
   const handleBack = () => {
-    navigate('/command-info/');
+    navigate('/');
   };
 
   return (
