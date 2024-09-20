@@ -11,7 +11,7 @@ function App() {
       <div className="min-h-screen bg-gray-900 text-green-500">
         <Routes>
           <Route path="/" element={<Terminal />} />
-          <Route path="/button-interface" element={<ButtonInterface />} />
+          <Route path="/terminal" element={<ButtonInterface />} />
           <Route path="/command/:name" element={<CommandDetail />} />
         </Routes>
       </div>

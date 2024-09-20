@@ -82,7 +82,7 @@ function Terminal() {
                 <h3 className="text-lg font-semibold mb-2">{cmd.name}</h3>
                 <p className="text-sm mb-2">{cmd.description}</p>
                 <Link
-                  to={`/command-info/command/${cmd.name}`}
+                  to={`/command/${cmd.name}`}
                   className="text-blue-400 hover:underline"
                 >
                   View Details
@@ -97,7 +97,7 @@ function Terminal() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <Link to="/command-info/" className="text-blue-400 hover:underline">
+          <Link to="/terminal" className="text-blue-400 hover:underline">
             Back to Terminal Interface
           </Link>
         </motion.div>
