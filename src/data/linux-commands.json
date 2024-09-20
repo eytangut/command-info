@@ -1,0 +1,363 @@
+[
+    {
+      "name": "ls",
+      "description": "List directory contents",
+      "longDescription": "The ls command is used to list files and directories in a directory. It provides information about file types, permissions, and other metadata.",
+      "usage": "ls [OPTION]... [FILE]...",
+      "category": "File System",
+      "arguments": [
+        {
+          "name": "-l",
+          "description": "Use a long listing format"
+        },
+        {
+          "name": "-a",
+          "description": "Do not ignore entries starting with ."
+        },
+        {
+          "name": "-h",
+          "description": "Print sizes in human readable format"
+        }
+      ],
+      "examples": [
+        "ls",
+        "ls -l",
+        "ls -a",
+        "ls -lh"
+      ]
+    },
+    {
+      "name": "cd",
+      "description": "Change the current directory",
+      "longDescription": "The cd command is used to change the current working directory in a shell session. It allows you to navigate the file system hierarchy.",
+      "usage": "cd [DIRECTORY]",
+      "category": "File System",
+      "arguments": [
+        {
+          "name": "..",
+          "description": "Move to the parent directory"
+        },
+        {
+          "name": "~",
+          "description": "Move to the user's home directory"
+        },
+        {
+          "name": "-",
+          "description": "Move to the previous directory"
+        }
+      ],
+      "examples": [
+        "cd /home/user",
+        "cd ..",
+        "cd ~"
+      ]
+    },
+    {
+      "name": "mkdir",
+      "description": "Make directories",
+      "longDescription": "The mkdir command is used to create new directories in the file system. It can create multiple directories at once and create parent directories as needed.",
+      "usage": "mkdir [OPTION]... DIRECTORY...",
+      "category": "File System",
+      "arguments": [
+        {
+          "name": "-p",
+          "description": "Create parent directories as needed"
+        },
+        {
+          "name": "-m",
+          "description": "Set file mode (as in chmod)"
+        },
+        {
+          "name": "-v",
+          "description": "Print a message for each created directory"
+        }
+      ],
+      "examples": [
+        "mkdir new_directory",
+        "mkdir -p parent/child/grandchild"
+      ]
+    },
+    {
+      "name": "grep",
+      "description": "Search for patterns in files",
+      "longDescription": "The grep command searches for patterns in files or standard input. It can display lines that match a specified pattern.",
+      "usage": "grep [OPTION]... PATTERN [FILE]...",
+      "category": "Text Processing",
+      "arguments": [
+        {
+          "name": "-i",
+          "description": "Ignore case distinctions"
+        },
+        {
+          "name": "-r",
+          "description": "Recursively search subdirectories"
+        },
+        {
+          "name": "-n",
+          "description": "Print line numbers with output lines"
+        }
+      ],
+      "examples": [
+        "grep 'pattern' file.txt",
+        "grep -i 'case insensitive' file.txt",
+        "grep -r 'recursive search' ."
+      ]
+    },
+    {
+      "name": "chmod",
+      "description": "Change file mode bits",
+      "longDescription": "The chmod command is used to change the permissions of files and directories. It can modify read, write, and execute permissions for the owner, group, and others.",
+      "usage": "chmod [OPTION]... MODE[,MODE]... FILE...",
+      "category": "File System",
+      "arguments": [
+        {
+          "name": "-R",
+          "description": "Change files and directories recursively"
+        },
+        {
+          "name": "-v",
+          "description": "Output a diagnostic for every file processed"
+        }
+      ],
+      "examples": [
+        "chmod 755 file.txt",
+        "chmod u+x script.sh",
+        "chmod -R o-w directory"
+      ]
+    },
+    {
+      "name": "ps",
+      "description": "Report a snapshot of the current processes",
+      "longDescription": "The ps command provides information about currently running processes, including their process ID, CPU usage, memory usage, and more.",
+      "usage": "ps [OPTIONS]",
+      "category": "Process Management",
+      "arguments": [
+        {
+          "name": "-e",
+          "description": "Select all processes"
+        },
+        {
+          "name": "-f",
+          "description": "Do full-format listing"
+        },
+        {
+          "name": "-u",
+          "description": "Select by effective user ID or name"
+        }
+      ],
+      "examples": [
+        "ps",
+        "ps -ef",
+        "ps aux"
+      ]
+    },
+    [
+        {
+          "name": "ssh",
+          "description": "Secure Shell, a protocol for securely accessing remote machines.",
+          "longDescription": "The ssh command is used to establish a secure connection to a remote machine over an unsecured network, allowing for secure remote login and other secure network services.",
+          "usage": "ssh [USER@]HOST",
+          "category": "Networking",
+          "arguments": [
+            {
+              "name": "-p PORT",
+              "description": "Specifies the port to connect to on the remote host."
+            },
+            {
+              "name": "-i IDENTITY_FILE",
+              "description": "Selects a file from which the identity (private key) for public key authentication is read."
+            }
+          ],
+          "examples": [
+            "ssh user@example.com",
+            "ssh -p 2222 user@hostname"
+          ]
+        },
+        {
+          "name": "telnet",
+          "description": "A protocol for text-based communication with remote devices.",
+          "longDescription": "The telnet command allows users to connect to remote servers and perform operations through a command-line interface, but it is not secure as it transmits data in plaintext.",
+          "usage": "telnet HOST [PORT]",
+          "category": "Networking",
+          "arguments": [
+            {
+              "name": "-l USER",
+              "description": "Specifies the user to log in as."
+            }
+          ],
+          "examples": [
+            "telnet example.com 80",
+            "telnet 192.168.1.1"
+          ]
+        },
+        {
+          "name": "nc",
+          "description": "Netcat, a utility for reading from and writing to network connections.",
+          "longDescription": "The nc command can create TCP or UDP connections and is useful for network diagnostics and data transfer, acting as a simple network data pipeline.",
+          "usage": "nc [OPTIONS] [HOST] [PORT]",
+          "category": "Networking",
+          "arguments": [
+            {
+              "name": "-l",
+              "description": "Listens for incoming connections."
+            },
+            {
+              "name": "-u",
+              "description": "Uses UDP instead of TCP."
+            }
+          ],
+          "examples": [
+            "nc example.com 80",
+            "nc -l 1234"
+          ]
+        },
+        {
+          "name": "ncat",
+          "description": "An enhanced version of netcat, part of the Nmap suite.",
+          "longDescription": "The ncat command is designed for networking and can handle connections in various modes, providing features like SSL support and IPv6.",
+          "usage": "ncat [OPTIONS] [HOST] [PORT]",
+          "category": "Networking",
+          "arguments": [
+            {
+              "name": "-l",
+              "description": "Listen mode."
+            },
+            {
+              "name": "--ssl",
+              "description": "Use SSL for encryption."
+            }
+          ],
+          "examples": [
+            "ncat -l -p 1234",
+            "ncat example.com 80"
+          ]
+        },
+        {
+          "name": "socat",
+          "description": "A command-line based utility that establishes two bidirectional byte streams.",
+          "longDescription": "The socat command can connect two network sockets, allowing for complex networking setups and enabling data transfers between different types of endpoints.",
+          "usage": "socat [OPTIONS] ADDRESS1 ADDRESS2",
+          "category": "Networking",
+          "arguments": [
+            {
+              "name": "-v",
+              "description": "Verbose mode, displays detailed information."
+            },
+            {
+              "name": "-u",
+              "description": "Use UDP instead of TCP."
+            }
+          ],
+          "examples": [
+            "socat TCP-LISTEN:1234,fork EXEC:/bin/bash",
+            "socat UDP4-DATAGRAM:example.com:1234"
+          ]
+        },
+        {
+          "name": "openssl",
+          "description": "A toolkit for the Transport Layer Security (TLS) and Secure Sockets Layer (SSL) protocols.",
+          "longDescription": "The openssl command is used for creating and managing SSL/TLS certificates and performing secure network communications.",
+          "usage": "openssl [COMMAND] [OPTIONS]",
+          "category": "Security",
+          "arguments": [
+            {
+              "name": "COMMAND",
+              "description": "The specific OpenSSL command to run (e.g., s_client, req)."
+            },
+            {
+              "name": "-days N",
+              "description": "Specifies the number of days the certificate is valid."
+            }
+          ],
+          "examples": [
+            "openssl s_client -connect example.com:443",
+            "openssl req -new -x509 -days 365 -key key.pem -out cert.pem"
+          ]
+        },
+        {
+          "name": "s_client",
+          "description": "A command in OpenSSL for testing SSL/TLS connections.",
+          "longDescription": "The s_client command connects to a specified host and port and establishes an SSL/TLS connection, providing information about the SSL certificate and encryption used.",
+          "usage": "openssl s_client -connect HOST:PORT",
+          "category": "Security",
+          "arguments": [
+            {
+              "name": "-showcerts",
+              "description": "Displays all certificates in the chain."
+            },
+            {
+              "name": "-starttls PROTOCOL",
+              "description": "Initiates a TLS handshake for specified protocol (e.g., smtp)."
+            }
+          ],
+          "examples": [
+            "openssl s_client -connect example.com:443",
+            "openssl s_client -starttls smtp -connect smtp.example.com:25"
+          ]
+        },
+        {
+          "name": "nmap",
+          "description": "A network scanning tool used to discover hosts and services on a computer network.",
+          "longDescription": "The nmap command is widely used for security auditing, network inventory, and discovering devices on a network.",
+          "usage": "nmap [OPTIONS] [TARGET]",
+          "category": "Networking",
+          "arguments": [
+            {
+              "name": "-sP",
+              "description": "Ping scan - determines which hosts are up."
+            },
+            {
+              "name": "-p PORTS",
+              "description": "Specifies which ports to scan."
+            }
+          ],
+          "examples": [
+            "nmap -sP 192.168.1.0/24",
+            "nmap -p 22,80 example.com"
+          ]
+        },
+        {
+          "name": "netstat",
+          "description": "A networking utility that displays network connections, routing tables, and interface statistics.",
+          "longDescription": "The netstat command provides insights into network connections, listening ports, and protocol statistics, useful for troubleshooting and monitoring network activity.",
+          "usage": "netstat [OPTIONS]",
+          "category": "Networking",
+          "arguments": [
+            {
+              "name": "-a",
+              "description": "Displays all connections and listening ports."
+            },
+            {
+              "name": "-t",
+              "description": "Shows TCP connections."
+            }
+          ],
+          "examples": [
+            "netstat -a",
+            "netstat -tuln"
+          ]
+        },
+        {
+          "name": "ss",
+          "description": "A utility to investigate sockets, providing similar information to netstat but with a more modern design.",
+          "longDescription": "The ss command is faster and can provide more detailed information about sockets, making it suitable for troubleshooting and performance analysis.",
+          "usage": "ss [OPTIONS]",
+          "category": "Networking",
+          "arguments": [
+            {
+              "name": "-t",
+              "description": "Displays TCP sockets."
+            },
+            {
+              "name": "-u",
+              "description": "Displays UDP sockets."
+            }
+          ],
+          "examples": [
+            "ss -tuln",
+            "ss -s"
+          ]
+        }
+      ]
+      
+  ]
